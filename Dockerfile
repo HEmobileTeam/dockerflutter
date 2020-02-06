@@ -7,3 +7,7 @@ RUN tar -C $HOME -xf /tmp/flutter.tar.xz
 ENV FLUTTER_HOME $HOME/flutter
 
 ENV PATH $PATH:$FLUTTER_HOME/bin
+
+RUN flutter precache
+
+RUN flutter doctor
