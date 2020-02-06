@@ -6,7 +6,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: skydome/dockerflutter@master
       with:
         name: skydome/dockerflutter
         username: ${{ secrets.DOCKER_USERNAME }}
