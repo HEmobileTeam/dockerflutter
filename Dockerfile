@@ -1,4 +1,4 @@
-FROM circleci/android:api-29-node
+FROM circleci/android:api-28-node
 
 USER root
 
