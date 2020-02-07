@@ -12,7 +12,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag skydome/dockerflutter:$(date +%s)
-        docker tag master skydome/dockerflutter
+        export buildtag=$(date +%s)
+        docker build . --file Dockerfile --tag skydome/dockerflutter:$buildtag
+        docker tag skydome/dockerflutter:$buildtag skydome/dockerflutter:latest
         echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login --username="${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
         docker push sydome/dockerflutter
