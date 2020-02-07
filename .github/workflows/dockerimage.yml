@@ -16,5 +16,4 @@ jobs:
         docker build . -t skydome/dockerflutter:$buildtag
         docker tag skydome/dockerflutter:$buildtag skydome/dockerflutter:latest
         echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login --username="${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-        docker push sydome/dockerflutter:$buildtag
         docker push sydome/dockerflutter:latest
