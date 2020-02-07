@@ -13,10 +13,9 @@ jobs:
     - name: Build the Docker image
       run: |
         export buildtag=$(date +%s)
-        docker build . -t skydome/dockerflutter
-        docker tag skydome/dockerflutter skydome/dockerflutter
-        docker tag skydome/dockerflutter skydome/dockerflutter:latest
-        docker tag skydome/dockerflutter skydome/dockerflutter:$buildtag
+        export image=skydome/dockerflutter
+        docker build . -t $image
+        docker tag $image $image:$buildtag
         echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login --username="${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-        docker push sydome/dockerflutter:latest
-        docker push sydome/dockerflutter:$buildtag
+        docker push $image:latest
+        docker push $image:$buildtag
