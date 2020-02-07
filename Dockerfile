@@ -10,6 +10,8 @@ RUN tar -C /opt -xf /tmp/flutter.tar.xz
 
 RUN rm /tmp/flutter.tar.xz
 
+RUN chmod -R a+rw /opt/flutter
+
 ENV FLUTTER_HOME /opt/flutter
 
 ENV PATH $PATH:$FLUTTER_HOME/bin
