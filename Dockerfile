@@ -24,4 +24,4 @@ RUN flutter precache
 
 RUN flutter doctor
 
-RUN gradle
+RUN gradle --version
