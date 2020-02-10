@@ -6,16 +6,22 @@ RUN curl -L https://storage.googleapis.com/flutter_infra/releases/stable/linux/f
 
 RUN mkdir -p /opt
 
-RUN tar -C /opt -xf /tmp/flutter.tar.xz 
+RUN tar -C /opt -xf /tmp/flutter.tar.xz && rm /tmp/flutter.tar.xz
 
-RUN rm /tmp/flutter.tar.xz
+RUN curl -L https://services.gradle.org/distributions/gradle-6.1.1-bin.zip --output /tmp/gradle-6.1.1-bin.zip
+
+RUN unzip /tmp/gradle-6.1.1-bin.zip -d /opt && rm /tmp/gradle-6.1.1-bin.zip
 
 RUN chmod -R a+rw /opt
 
 ENV FLUTTER_HOME /opt/flutter
 
-ENV PATH $PATH:$FLUTTER_HOME/bin
+ENV GRADLE_HOME /opt/gradle-6.1.1
+
+ENV PATH $PATH:$FLUTTER_HOME/bin:$GRADLE_HOME/bin
 
 RUN flutter precache
 
 RUN flutter doctor
+
+RUN gradle
