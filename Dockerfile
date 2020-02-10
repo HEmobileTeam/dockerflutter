@@ -1,4 +1,4 @@
-FROM circleci/android:api-28-node
+FROM circleci/android:api-29-node
 
 USER root
 
@@ -10,7 +10,7 @@ RUN tar -C /opt -xf /tmp/flutter.tar.xz
 
 RUN rm /tmp/flutter.tar.xz
 
-RUN chmod -R a+rw /opt/flutter
+RUN chmod -R a+rw /opt
 
 ENV FLUTTER_HOME /opt/flutter
 
