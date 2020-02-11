@@ -19,3 +19,10 @@ ENV FLUTTER_HOME /opt/flutter
 ENV GRADLE_HOME /opt/gradle-6.1.1
 
 ENV PATH $PATH:$FLUTTER_HOME/bin:$GRADLE_HOME/bin:$PACT/bin
+
+RUN flutter precache
+
+RUN flutter doctor
+
+RUN gradle --version
+
