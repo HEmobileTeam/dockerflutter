@@ -10,6 +10,7 @@ RUN curl -L https://storage.googleapis.com/flutter_infra/releases/stable/linux/f
     tar -C /opt -xf /tmp/flutter.tar.xz && rm /tmp/flutter.tar.xz && \
     unzip /tmp/gradle-6.1.1-bin.zip -d /opt && rm /tmp/gradle-6.1.1-bin.zip && \
     tar -C /opt -xf /tmp/pact-1.78.0-linux-x86_64.tar.gz && rm /tmp/pact-1.78.0-linux-x86_64.tar.gz && \
+    gem install fastlane -NV && \
     chmod -R a+rw /opt
 
 ENV PACT /opt/pact
