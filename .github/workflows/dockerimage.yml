@@ -13,7 +13,7 @@ jobs:
     - name: Build the Docker image
       run: |
         export buildtag=$(date +%s)
-        export image=skydome/dockerflutter
+        export image=HEmobileTeam/dockerflutter
         docker build . -t $image
         docker tag $image $image:$buildtag
         echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login --username="${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
